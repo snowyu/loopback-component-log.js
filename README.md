@@ -17,10 +17,12 @@ The loopback component add the log function to the loopback.
   {
     "loopback-component-log": {
       "enabled": true,
-      "name": 'logger',
+      "name": "logger",
       "http": true,
       "level": "info",
       "useStdOut": true,
+      "useLogFile": false,
+      "path": "./logs"
       "maxResponseTime": 30000,
       "excludes": ["req","res"]
       ...
@@ -30,10 +32,15 @@ The loopback component add the log function to the loopback.
   - `enabled` *[Boolean]*: whether enable this component. *defaults: true*
   - `http` *[Boolean]*: whether log the http request. *defaults: true*
     * the Model.json can control it if not settings.
+  - `useStdOut` *[Boolean]*: whether log to stdout. *defaults: true*
+  - `useLogFile` *[Boolean]*: whether log to the file. *defaults: false*
+    - `path` *[String]*: the log folder. *defaults: ./logs*
+    - `period` *[String]*: the log file period. *defaults: 1d*
+    - `logType` *[String]*: the log file type. *defaults: rotating-file*
+    - `maxLogs` *[Integer]*: the max count of the log files. *default :10*
   - `maxResponseTime` *[Integer]*: treat if as fatal if response exceed the time. *default :30000*
     * 0 or null means do not enable this feature .
   - see the
-    - [bunyan-log](https://github.com/sameke/bunyan-log)
     - [express-bunyan-logger](https://github.com/villadora/express-bunyan-logger)
 
 ### Usage
@@ -52,3 +59,6 @@ set `DEBUG=loopback:component:log` env vaiable to show debug info.
 
 ## History
 
+## TODO
+
++ !syslog stream
