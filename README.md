@@ -32,6 +32,7 @@ The loopback component add the log function to the loopback.
   - `enabled` *[Boolean]*: whether enable this component. *defaults: true*
   - `http` *[Boolean]*: whether log the http request. *defaults: true*
     * the Model.json can control it if not settings.
+  - `level` *[Strong]*: the log level string: "trace", "debug", "info", "warn", error", "fatal"
   - `useStdOut` *[Boolean]*: whether log to stdout. *defaults: true*
   - `useLogFile` *[Boolean]*: whether log to the file. *defaults: false*
     - `path` *[String]*: the log folder. *defaults: ./logs*
