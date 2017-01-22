@@ -5,12 +5,14 @@ path        = require 'path'
 debug       = require('debug')('loopback:component:log')
 
 module.exports = (aApp, aOptions = {}) ->
-  http        = aOptions.http || true
+  http        = aOptions.http
+  http       ?= true
   name        = aOptions.name || 'logger'
   level       = aOptions.level || 'info'
   excludes    = aOptions.excludes || ['req','res']
   format      = aOptions.format
-  useStdOut   = aOptions.useStdOut || true
+  useStdOut   = aOptions.useStdOut
+  useStdOut  ?= true
   useLogFile  = aOptions.useLogFile
   logPath     = aOptions.path || './logs'
   period      = aOptions.period || '1d'
